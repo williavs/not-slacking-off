@@ -39,7 +39,7 @@
 
 ---
 
-## Deploying Internally (Docker & Kubernetes)
+## Deploying Internally 
 
 ### Docker Compose (Simple)
 
@@ -65,39 +65,7 @@ services:
     restart: unless-stopped
 ```
 
-### Kubernetes (Production)
 
-1. **Build and push your Docker image to your registry.**
-2. **Create a Kubernetes deployment and service:**
-   - Use the provided `helm/` chart or write your own manifests.
-   - Mount your `.env` as a Kubernetes Secret or ConfigMap.
-   - Example snippet:
-     ```yaml
-     apiVersion: apps/v1
-     kind: Deployment
-     metadata:
-       name: not-slacking-off
-     spec:
-       replicas: 1
-       selector:
-         matchLabels:
-           app: not-slacking-off
-       template:
-         metadata:
-           labels:
-             app: not-slacking-off
-         spec:
-           containers:
-             - name: bot
-               image: <your-registry>/not-slacking-off:latest
-               envFrom:
-                 - secretRef:
-                     name: not-slacking-off-env
-     ```
-3. **Expose the bot to your Slack workspace:**
-   - Use an Ingress, LoadBalancer, or port-forward as appropriate.
-
----
 
 ## Configuration
 
