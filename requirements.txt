@@ -1,0 +1,11 @@
+atlassian-python-api
+slack_bolt
+mcp-agent>=0.0.21
+mcp-atlassian>=0.1.0
+rag
+python-dotenv
+anthropic
+openai
+openai-agents
+asyncio
+langsmith
